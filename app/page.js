@@ -1,5 +1,10 @@
-import App from './App';
+import App from './components/App';
+import { StrictMode } from 'react';
 
 export default function Home() {
-  return <App />;
+  return (
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
 }
