@@ -1,0 +1,43 @@
+// Mixin breakpoints
+@mixin desktop-view {
+    @media (min-width: 500px) {
+        @content;
+    }
+}
+
+// Root variables
+$font-size: 1rem;
+$font-size-m: 1.5rem;
+$font-size-l: 2.5rem;
+
+$gutter-s: 1rem;
+$gutter: 2.5rem;
+$gutter-m: 3.75rem;
+$gutter-l: 5rem;
+
+// CSS classes
+.fpl-header {
+    padding-block: $gutter;
+    text-align: center;
+}
+
+.fpl-layout {
+    &__app-container {
+        margin: auto;
+        overflow-wrap: break-word;
+        width: 80%;
+    }
+}
+
+.fpl-player-search {
+    display: block;
+    font-size: $font-size-m;
+    height: $gutter-m;
+    padding: $gutter-s;
+    width: 100%;
+
+    &__player-list {
+        list-style-type: none;
+    }
+}
+
