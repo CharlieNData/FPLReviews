@@ -36,6 +36,10 @@ $gutter-l: 5rem;
     padding: $gutter-s;
     width: 100%;
 
+    &__player-item {
+        padding: $gutter-s;
+    }
+
     &__player-list {
         list-style-type: none;
     }
