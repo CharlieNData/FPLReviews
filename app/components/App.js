@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react';
 import '../../styles/App.scss';
 
 import Header from './Header';
-import PlayerSearch from './PlayerSearch';
+import PlayerSelect from './PlayerSelect';
 
 export default function App() {
   const [error, setError] = useState(null);
@@ -16,7 +16,7 @@ export default function App() {
         .then((res) => res.json())
         .then((result) => {
           setIsLoaded(true);
-          setItems(result.elements);
+          setItems(result);
         },
         (error) => {
           setIsLoaded(true);
@@ -32,7 +32,7 @@ export default function App() {
     return (
       <div className='fpl-layout__app-container'>
         <Header />
-        <PlayerSearch playerData={items} />
+        <PlayerSelect playerData={items.elements} teamData={items.teams} />
       </div>
     );
   }
