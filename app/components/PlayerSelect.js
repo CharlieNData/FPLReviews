@@ -41,6 +41,12 @@ export default function PlayerSelect(props) {
           teamPlaysFor={props.teamData.find(function (t) {
             return t.code === playerSelected.team_code;
           })}
+          fixtures={props.fixtureData.filter((f) => {
+            const hasPlayedIn =
+              f.team_a === playerSelected.team ||
+              f.team_h === playerSelected.team;
+            return hasPlayedIn && f.finished;
+          })}
         />
       );
     }

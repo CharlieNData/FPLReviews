@@ -5,6 +5,7 @@ export default function PlayerInfoCard(props) {
 
   const player = props.playerSelected;
   const team = props.teamPlaysFor;
+  const fixtures = props.fixtures;
 
   const positions = [
     'Goalkeeper', 
@@ -40,15 +41,14 @@ export default function PlayerInfoCard(props) {
     }
   ];
 
-  const buildStat = (title, value) => {
+  const buildStat = (title, value, index) => {
     return (
-      <tr className='fpl-player-info-card__stats__row'>
+      <tr className='fpl-player-info-card__stats__row' key={index}>
         <td className='fpl-player-info-card__stats__item'>{title}: </td>
         <td className='fpl-player-info-card__stats__item'>{player[value]}</td>
       </tr>
     );
   }
-  
 
   return (
     <div className='fpl-player-info-card'>
@@ -56,11 +56,20 @@ export default function PlayerInfoCard(props) {
         <h1>{player.first_name + ' ' + player.second_name}</h1>
         <p>{positions[player.element_type-1]} | {team.name}</p>
       </div>
+      <div className='fpl-player-info-card__fixture-list'>
+        {
+          
+        }
+      </div>
       <div className='fpl-player-info-card__stats--container'>
         <table className='fpl-player-info-card__stats'>
-          {stats.map(function(s) {
-            return buildStat(s.title, s.value);
-          })}
+          <tbody>
+            {
+              stats.map(function(s, i) {
+                return buildStat(s.title, s.value, i);
+              })
+            }
+          </tbody>
         </table>
       </div>
     </div>
