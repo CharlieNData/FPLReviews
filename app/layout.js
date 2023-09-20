@@ -1,4 +1,5 @@
 import './globals.css';
+import React from 'react';
 import {Inter} from 'next/font/google';
 
 const inter = Inter({subsets: ['latin']});
@@ -8,6 +9,11 @@ export const metadata = {
   description: 'A Fantasy Premier League app by Charlie Jewers',
 };
 
+
+/**
+ * Root function.
+ * @return {React.ReactElement} Web app.
+ */
 export default function RootLayout({children}) {
   return (
     <html lang="en">

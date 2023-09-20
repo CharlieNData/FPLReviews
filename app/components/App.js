@@ -1,10 +1,13 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import "../../styles/App.scss";
-import Header from "./Header";
-import PlayerSelect from "./PlayerSelect";
+import React, {useState, useEffect} from 'react';
+import '../../styles/App.scss';
+import Header from './Header';
+import PlayerSelect from './PlayerSelect';
 
+/** Main app functionality.
+ * @return {React.ReactElement} The app.
+*/
 export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,22 +16,22 @@ export default function App() {
 
   useEffect(() => {
     Promise.all([
-      fetch("https://fantasy.premierleague.com/api/bootstrap-static/").then(
-        (res) => res.json()
+      fetch('https://fantasy.premierleague.com/api/bootstrap-static/').then(
+          (res) => res.json(),
       ),
-      fetch("https://fantasy.premierleague.com/api/fixtures/").then((res) =>
-        res.json()
+      fetch('https://fantasy.premierleague.com/api/fixtures/').then((res) =>
+        res.json(),
       ),
     ]).then(
-      ([general, fixtures]) => {
-        setIsLoaded(true);
-        setStats(general);
-        setFixtures(fixtures);
-      },
-      (error) => {
-        setIsLoaded(true);
-        setError(error);
-      }
+        ([general, fixtures]) => {
+          setIsLoaded(true);
+          setStats(general);
+          setFixtures(fixtures);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        },
     );
   }, []);
 

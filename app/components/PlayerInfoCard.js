@@ -1,44 +1,45 @@
 import React from 'react';
-import { Value } from 'sass';
 
+/** Displays information for an individual player.
+ * @param {*} props
+ * @return {React.ReactElement} The player information card.
+*/
 export default function PlayerInfoCard(props) {
-
   const player = props.playerSelected;
   const team = props.teamPlaysFor;
-  const fixtures = props.fixtures;
 
   const positions = [
-    'Goalkeeper', 
-    'Defender', 
-    'Midfielder', 
-    'Forward'
+    'Goalkeeper',
+    'Defender',
+    'Midfielder',
+    'Forward',
   ];
 
   const stats = [
     {
       title: 'Goals',
-      value:'goals_scored'
+      value: 'goals_scored',
     },
     {
       title: 'Assists',
-      value:'assists'
+      value: 'assists',
     },
     {
       title: 'Form',
-      value:'form'
+      value: 'form',
     },
     {
       title: 'Expected Goals',
-      value:'expected_goals'
+      value: 'expected_goals',
     },
     {
       title: 'Expected Assists',
-      value: 'expected_assists'
+      value: 'expected_assists',
     },
     {
       title: 'Ownership',
-      value:'selected_by_percent'
-    }
+      value: 'selected_by_percent',
+    },
   ];
 
   const buildStat = (title, value, index) => {
@@ -48,7 +49,7 @@ export default function PlayerInfoCard(props) {
         <td className='fpl-player-info-card__stats__item'>{player[value]}</td>
       </tr>
     );
-  }
+  };
 
   return (
     <div className='fpl-player-info-card'>
@@ -58,7 +59,7 @@ export default function PlayerInfoCard(props) {
       </div>
       <div className='fpl-player-info-card__fixture-list'>
         {
-          
+
         }
       </div>
       <div className='fpl-player-info-card__stats--container'>
