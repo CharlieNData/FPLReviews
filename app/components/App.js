@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import "../../styles/App.scss";
-
 import Header from "./Header";
 import PlayerSelect from "./PlayerSelect";
 
@@ -17,18 +16,20 @@ export default function App() {
       fetch("https://fantasy.premierleague.com/api/bootstrap-static/").then(
         (res) => res.json()
       ),
-      fetch("https://fantasy.premierleague.com/api/fixtures/").then(
-        (res) => res.json()
-      )
-    ]).then(([general, fixtures]) => {
-      setIsLoaded(true);
-      setStats(general);
-      setFixtures(fixtures);
-    },
-    (error) => {
-      setIsLoaded(true);
-      setError(error);
-    })
+      fetch("https://fantasy.premierleague.com/api/fixtures/").then((res) =>
+        res.json()
+      ),
+    ]).then(
+      ([general, fixtures]) => {
+        setIsLoaded(true);
+        setStats(general);
+        setFixtures(fixtures);
+      },
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+      }
+    );
   }, []);
 
   if (error) {
@@ -40,9 +41,9 @@ export default function App() {
       <div className="fpl-layout__app-container">
         <Header />
         <PlayerSelect
-          fixtureData={fixtures} 
-          playerData={stats.elements} 
-          teamData={stats.teams} 
+          fixtureData={fixtures}
+          playerData={stats.elements}
+          teamData={stats.teams}
         />
       </div>
     );

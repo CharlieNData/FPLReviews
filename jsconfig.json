@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"],
-      "module": "commonjs",
-      "target": "es6"
+      "@/*": ["./*"]
     }
   }
 }

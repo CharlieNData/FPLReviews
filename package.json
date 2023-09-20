@@ -2,6 +2,9 @@
   "name": "fpl-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.6.1"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
